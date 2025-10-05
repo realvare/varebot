@@ -1,0 +1,4 @@
+# Netscape HTTP Cookie File / serve per il comando dl-play.js se si è su server
+# Quick tutorial - installare https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc?pli=1
+# Dal proprio browser -> andare su yt e cliccare sull'estenzione, prendere i cookies e incollarli qui
+# Se si sta self hostando non è necessario
