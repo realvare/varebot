@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
-import { handleEventParticipation } from './plugins/gp-sorteggio.js'
 import NodeCache from 'node-cache'
 import debounce from 'lodash.debounce'
 import { getAggregateVotesInPollMessage, getSenderLid, toJid, validateJid } from '@realvare/based'
@@ -384,10 +383,23 @@ export async function handler(chatUpdate) {
             const action = response === 'going' ? 'join' : 'leave'
 
             try {
-                await handleEventParticipation(this, eventId, jid, userId, action)
+                if (!global.activeEvents) global.activeEvents = new Map()
+                if (!global.activeGiveaways) global.activeGiveaways = new Map()
+
+                let eventData = global.activeEvents.get(eventId) || global.activeGiveaways.get(jid)
+                if (eventData) {
+                    if (!eventData.participants) eventData.participants = new Set()
+                    if (action === 'join') {
+                        eventData.participants.add(userId)
+                        console.log(`[EVENTO] ${userId} si è unito all'evento ${eventId}`)
+                    } else if (action === 'leave') {
+                        eventData.participants.delete(userId)
+                        console.log(`[EVENTO] ${userId} ha lasciato l'evento ${eventId}`)
+                    }
+                }
                 eventHandled = true
             } catch (error) {
-                console.error('[ERRORE] Errore in handleEventParticipation:', error)
+                console.error('[ERRORE] Errore nella gestione partecipazione evento:', error)
             }
         }
         if (m.message?.encEventResponseMessage && !eventHandled) {
@@ -401,10 +413,18 @@ export async function handler(chatUpdate) {
 
             if (eventId) {
                 try {
-                    await handleEventParticipation(this, eventId, jid, userId, 'join')
+                    if (!global.activeEvents) global.activeEvents = new Map()
+                    if (!global.activeGiveaways) global.activeGiveaways = new Map()
+
+                    let eventData = global.activeEvents.get(eventId) || global.activeGiveaways.get(jid)
+                    if (eventData) {
+                        if (!eventData.participants) eventData.participants = new Set()
+                        eventData.participants.add(userId)
+                        console.log(`[EVENTO] ${userId} si è unito all'evento criptato ${eventId}`)
+                    }
                     eventHandled = true
                 } catch (error) {
-                    console.error('[ERRORE] Errore in handleEventParticipation:', error)
+                    console.error('[ERRORE] Errore nella gestione partecipazione evento criptato:', error)
                 }
             }
         }
