@@ -1,7 +1,6 @@
 import { createCanvas, loadImage } from 'canvas'
 import { webp2png } from '../lib/webp2png.js'
 import { webp2mp4 } from '../lib/webp2mp4.js'
-import { tmpdir } from 'os'
 import path from 'path'
 import fs from 'fs'
 import { spawn } from 'child_process'
@@ -110,6 +109,8 @@ function calculateTextLayout(width, height, titolo, posizione) {
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
+    const tempDir = path.join(process.cwd(), 'temp')
+    if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true })
     if (!m.quoted) throw `『 📎 』 \`Rispondi a un'immagine, video, GIF o sticker\`\n\n\`Esempio:\`\n*${usedPrefix + command} my honest reaction*`
 
     const mime = m.quoted.mimetype || ''
@@ -136,8 +137,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     titolo = titolo.toUpperCase().substring(0, 200)
 
     if (/video|gif|webp/.test(mime) && (mime.includes('video') || mime.includes('gif') || (mime.includes('webp') && m.quoted.seconds))) {
-      const inputPath = path.join(tmpdir(), `input_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.mp4`)
-      const outputPath = path.join(tmpdir(), `output_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.mp4`)
+      const inputPath = path.join(tempDir, `input_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.mp4`)
+      const outputPath = path.join(tempDir, `output_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.mp4`)
       
       try {
         let vidBuffer
@@ -190,8 +191,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             overlayCtx.fillText(textLayout.lines[i], overlayCanvas.width / 2, y)
           }
         }
-        const overlayPath = path.join(tmpdir(), `overlay_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.png`)
-        const overlayBuffer = overlayCanvas.toBuffer('image/png')
+        const overlayPath = path.join(tempDir, `overlay_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.jpeg`)
+        const overlayBuffer = overlayCanvas.toBuffer('image/jpeg')
         fs.writeFileSync(overlayPath, overlayBuffer)
         let filterComplex = ''
         let scaleFilter = ''
@@ -396,8 +397,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         break
     }
 
-    const out = canvas.toBuffer('image/png')
-    return conn.sendFile(m.chat, out, 'titolo.png', '', m)
+    const out = canvas.toBuffer('image/jpeg')
+    return conn.sendFile(m.chat, out, 'titolo.jpeg', '', m)
 
   } catch (error) {
     console.error('Errore nel comando titolo:', error)
@@ -405,7 +406,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 }
 
-handler.help = ['titolo [posizione] | [testo]']
+handler.help = ['titolo [testo]']
 handler.tags = ['strumenti']
 handler.command = /^titolo$/i
 handler.register = true
