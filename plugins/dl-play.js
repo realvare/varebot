@@ -190,43 +190,39 @@ let handler = async (m, { conn, command, text, usedprefix }) => {
             return;
         }
 
-        const cards = searchResults.map((video, index) => {
+        // Modifica: Usa lo stesso metodo di sendMessage con cards come in factchecker.js
+        const cardsPromises = searchResults.map(async (video, index) => {
             const duration = video.duration?.timestamp || video.duration || '?';
             const views = video.views?.toLocaleString() || '?';
             const author = video.author?.name || 'Sconosciuto';
             const thumbnailUrl = video.thumbnail || `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
-            const shortTitle = video.title.substring(0, 300) + (video.title.length > 300 ? '...' : '');
+            const shortTitle = video.title.substring(0, 55) + (video.title.length > 55 ? '...' : '');
 
             return {
                 image: { url: thumbnailUrl },
-                title: '',
-                body: `『 👤 』 \`${author}\`\n『 ⏱️ 』 \`${duration}\`\n『 👁️ 』 \`${views}\`\n\n*${shortTitle}*`,
+                title: `${index + 1}. ${shortTitle}`,
+                body: `『 👤 』 *${author}*\n『 ⏱️ 』 *${duration}* ✬ 『 👁️ 』 *${views}*`,
                 footer: `Risultato ${index + 1} di ${searchResults.length}`,
                 buttons: [
                     {
                         name: 'cta_url',
                         buttonParamsJson: JSON.stringify({
-                            display_text: '🔗 Apri su YouTube',
+                            display_text: '📎 Copia link',
                             url: video.url
                         })
                     },
                     {
-                        name: 'cta_copy',
+                        name: 'cta_url',
                         buttonParamsJson: JSON.stringify({
-                            display_text: '📋 Copia Link',
-                            copy_code: video.url
-                        })
-                    },
-                    {
-                        name: 'quick_reply',
-                        buttonParamsJson: JSON.stringify({
-                            display_text: '🎵 Scarica Audio',
-                            id: `${prefix}playaudio ${video.url}`
+                            display_text: '📲 Apri su YouTube',
+                            url: video.url
                         })
                     }
                 ]
             };
         });
+
+        const cards = await Promise.all(cardsPromises);
 
         await conn.sendMessage(
             m.chat,
@@ -236,6 +232,25 @@ let handler = async (m, { conn, command, text, usedprefix }) => {
                 cards: cards
             },
             { quoted: m }
+        );
+
+        const interactiveButtons = searchResults.map((video, index) => {
+            const shortTitle = video.title.substring(0, 20) + (video.title.length > 20 ? '...' : '');
+            return [shortTitle, `${prefix}playaudio ${video.url}`];
+        });
+
+        const firstThumbnail = searchResults[0].thumbnail || `https://img.youtube.com/vi/${searchResults[0].videoId}/maxresdefault.jpg`;
+
+        await conn.sendButton(
+            m.chat,
+            `『 🎵 』 *Scegli per scaricare l'audio:*`,
+            '',
+            '',
+            interactiveButtons,
+            [],
+            [],
+            [],
+            m,
         );
 
     } catch (e) {
