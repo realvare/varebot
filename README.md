@@ -31,7 +31,7 @@
 <td align="center" width="250px">
 <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #8A2BE2, #9932CC); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 40px;">🧠</div>
 <br/><strong>『 🧠 』 Intelligenza Artificiale</strong>
-<br/><em>Varie ia integrate</em>
+<br/><em>Varie IA integrate</em>
 </td>
 <td align="center" width="250px">
 <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7B68EE, #8A2BE2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 40px;">⚕️</div>
@@ -133,17 +133,39 @@
 
 ### 📱 *ANDROID (TERMUX)*
 
+Scarica Termux dall'APK ufficiale: [https://f-droid.org/repo/com.termux_1022.apk](https://f-droid.org/repo/com.termux_1022.apk)
+
 <details>
-<summary><b>🔽 Clicca per l'installazione per termux</b></summary>
+<summary><b>🔽 Clicca per l'installazione su Termux</b></summary>
 
 <br>
 
-*⚠️ Questo setup è necessario per utilizzare tutte le funzionalità del bot*
+*⚠️ Questo setup è necessario per utilizzare tutte le funzionalità del bot.*
 
-#### 🐧 *Setup Ubuntu Environment su termux*
+#### 🖼️ *Installazione Nativa Completa per Termux*
 
 ```bash
+termux-setup-storage
+pkg update && pkg upgrade -y
+pkg install x11-repo tur-repo
+pkg install git nodejs ffmpeg imagemagick yarn libcairo pango libjpeg-turbo giflib libpixman pkg-config freetype fontconfig xorgproto build-essential python libvips sqlite clang make chromium -y
+pip install setuptools
+export GYP_DEFINES="android_ndk_path=''"
+cd ~
+git clone https://github.com/realvare/varebot.git
+cd varebot
+npm install node-gyp@latest
+yarn install
+npm install canvas sqlite3 puppeteer-core --build-from-source
+pip install yt-dlp
+node .
+```
 
+#### 🐧 *Container Ubuntu come Fallback (se Nativo Fallisce)*
+
+Se l'installazione nativa presenta errori irrisolvibili:
+
+```bash
 # 🔧 Setup iniziale in Termux
 termux-setup-storage
 
@@ -165,7 +187,7 @@ apt update && apt upgrade -y
 # 📚 Installazione librerie complete in Ubuntu
 apt install -y build-essential pkg-config libcairo2-dev \
 libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev \
-python3 python3-pip git curl wget ffmpeg
+python3 python3-pip git curl wget ffmpeg libvips-dev sqlite3
 
 # 🟢 Installazione Node.js latest LTS in Ubuntu
 curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
@@ -187,14 +209,10 @@ pip install -U "yt-dlp[default]"
 # 🚀 Avvio del bot
 node .
 
-# 📝 Nota: Ad ogni avvio di Termux, esegui questi comandi per riavviare:
-proot-distro login ubuntu
-cd varebot
-node .
-
-# Rifare ogni volta ⬇ ad ogni avvio di termux
-proot-distro login ubuntu
+# 📝 Nota: Ad ogni avvio di Termux, esegui: proot-distro login ubuntu; cd varebot; node .
 ```
+
+> *📝 Nota: Ad ogni riavvio di Termux, ripeti i comandi di accesso se usi container.*
 
 </details>
 
@@ -286,6 +304,7 @@ node .
 
 ## <div align="center">CONFIGURAZIONE BOT | 🛠</div>
 
+<details>
 <summary><b>🔧 Configurazioni necessarie</b></summary>
 
 1. **`📝 Modifica il file config.js`**
@@ -294,8 +313,9 @@ node .
  - **`per bot completo; con apikeys, tutti i comandi e altro`**
  **`contatta il creatore per maggiori info`**
 
-
 </details>
+
+---
 
 ## <div align="center">Metriche del Progetto | 📊</div>
 
@@ -324,6 +344,9 @@ node .
 <a href="https://paypal.me/samakavare" target="_blank">
   <img src="https://img.shields.io/badge/PAYPAL-0070BA?style=for-the-badge&logo=paypal&logoColor=white&labelColor=003087" alt="PayPal Support"/>
 </a>
+
+</div>
+
 ---
 
 <div align="center">
