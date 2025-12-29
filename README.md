@@ -9,7 +9,7 @@
 [![Version](https://img.shields.io/badge/VERSIONE-2.5.8-blueviolet?style=for-the-badge&logo=semantic-release&logoColor=white&labelColor=2D1B69)](https://github.com/realvare/varebot)
 [![Status](https://img.shields.io/badge/STATO-IN_SVILUPPO-mediumpurple?style=for-the-badge&logo=rocket&logoColor=white&labelColor=483D8B)](https://github.com/realvare/varebot)
 [![Node](https://img.shields.io/badge/Node.js-blueviolet?style=for-the-badge&logo=node.js&logoColor=white&labelColor=4B0082)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/LICENZA-APACHE-2.0-darkviolet?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=6A0DAD)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/LICENZA-Apache%202.0-darkviolet?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=6A0DAD)](https://opensource.org/licenses/Apache-2.0)
 
 </div>
 
