@@ -1,0 +1,502 @@
+[
+  {
+    "domanda": "Qual è il limite massimo di velocità in autostrada per una macchina leggera?",
+    "opzioni": {
+      "A": "130 km/h",
+      "B": "110 km/h",
+      "C": "90 km/h",
+      "D": "150 km/h"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Il segnale di STOP obbliga a:",
+    "opzioni": {
+      "A": "Fermarsi completamente e dare precedenza",
+      "B": "Rallentare e dare precedenza",
+      "C": "Fermarsi solo se ci sono altri veicoli",
+      "D": "Continuare senza fermarsi"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Quando si guida di notte, è obbligatorio accendere:",
+    "opzioni": {
+      "A": "Solo le luci di posizione",
+      "B": "I fari anabbaglianti",
+      "C": "I fari abbaglianti",
+      "D": "Nessuna luce"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "La cintura di sicurezza è obbligatoria:",
+    "opzioni": {
+      "A": "Solo per chi guida",
+      "B": "Solo per i passeggeri anteriori",
+      "C": "Per tutti i passeggeri, anteriori e posteriori",
+      "D": "Solo fuori città"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "La distanza di sicurezza deve essere mantenuta per:",
+    "opzioni": {
+      "A": "Permettere di frenare in caso di emergenza",
+      "B": "Non fare segnalazioni",
+      "C": "Aumentare la velocità",
+      "D": "Dare la precedenza"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "La striscia bianca continua al centro della carreggiata indica:",
+    "opzioni": {
+      "A": "Si può sorpassare",
+      "B": "Divieto di sorpasso",
+      "C": "Strada a senso unico",
+      "D": "Strada chiusa"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Cosa indica il segnale con il triangolo rosso e il disegno di un bambino che attraversa?",
+    "opzioni": {
+      "A": "Attraversamento pedonale per bambini",
+      "B": "Scuola nelle vicinanze",
+      "C": "Divieto di accesso ai bambini",
+      "D": "Zona giochi"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Il limite massimo di alcol nel sangue per un neopatentato è:",
+    "opzioni": {
+      "A": "0,5 g/l",
+      "B": "0,8 g/l",
+      "C": "0,0 g/l",
+      "D": "1,0 g/l"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Quando è consentito l’uso del clacson?",
+    "opzioni": {
+      "A": "Sempre per avvertire altri utenti",
+      "B": "Solo in caso di pericolo imminente",
+      "C": "Durante la guida in città",
+      "D": "Quando si è in coda"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "La segnaletica orizzontale a strisce bianche longitudinali indica:",
+    "opzioni": {
+      "A": "Corsia di emergenza",
+      "B": "Corsia di marcia",
+      "C": "Linea di arresto",
+      "D": "Passaggio pedonale"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Quando si deve utilizzare l’indicatore di direzione?",
+    "opzioni": {
+      "A": "Solo quando si cambia corsia",
+      "B": "Sempre quando si cambia direzione o corsia",
+      "C": "Solo in autostrada",
+      "D": "Solo in città"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Quale documento è obbligatorio portare sempre con sé durante la guida?",
+    "opzioni": {
+      "A": "Patente di guida",
+      "B": "Carta d’identità",
+      "C": "Codice fiscale",
+      "D": "Passaporto"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Come si deve comportare il conducente davanti a un semaforo rosso lampeggiante?",
+    "opzioni": {
+      "A": "Fermarsi e poi proseguire con cautela",
+      "B": "Proseguire senza fermarsi",
+      "C": "Fermarsi solo se ci sono pedoni",
+      "D": "Accelerare"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Il segnale di divieto di sosta indica:",
+    "opzioni": {
+      "A": "È vietato parcheggiare e fermarsi",
+      "B": "È vietato fermarsi ma si può parcheggiare",
+      "C": "È vietato parcheggiare ma si può fermarsi brevemente",
+      "D": "È consentito sostare solo di giorno"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "La corsia di emergenza si può utilizzare per:",
+    "opzioni": {
+      "A": "Sorpassare veicoli lenti",
+      "B": "Fermarsi solo in caso di emergenza",
+      "C": "Viaggiare normalmente",
+      "D": "Parcheggiare"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Cosa si intende per 'guida difensiva'?",
+    "opzioni": {
+      "A": "Guidare rispettando i limiti di velocità",
+      "B": "Guidare prevedendo e prevenendo i pericoli",
+      "C": "Guidare velocemente per evitare incidenti",
+      "D": "Guidare solo di giorno"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Il segnale di 'precedenza a destra' significa:",
+    "opzioni": {
+      "A": "Dare precedenza ai veicoli provenienti da destra",
+      "B": "Dare precedenza ai veicoli provenienti da sinistra",
+      "C": "La strada principale è a destra",
+      "D": "Dare precedenza solo ai pedoni"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Quale dei seguenti comportamenti è vietato quando piove?",
+    "opzioni": {
+      "A": "Aumentare la distanza di sicurezza",
+      "B": "Guidare a velocità moderata",
+      "C": "Usare i fari anabbaglianti",
+      "D": "Usare il cruise control"
+    },
+    "rispostaCorretta": "D"
+  },
+  {
+    "domanda": "Come ci si comporta se si vede un'ambulanza con sirena accesa?",
+    "opzioni": {
+      "A": "Si continua senza modificare la velocità",
+      "B": "Ci si ferma immediatamente",
+      "C": "Si libera il passaggio spostandosi a destra",
+      "D": "Si accelera per non intralciare"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Il segnale con un cerchio rosso e una barra bianca indica:",
+    "opzioni": {
+      "A": "Divieto di accesso",
+      "B": "Senso unico",
+      "C": "Stop",
+      "D": "Passaggio obbligatorio"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Quando si deve sostituire un pneumatico?",
+    "opzioni": {
+      "A": "Quando è consumato sotto il limite di legge",
+      "B": "Quando si vuole cambiare colore",
+      "C": "Solo quando è forato",
+      "D": "Ogni anno"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Qual è la funzione del freno motore?",
+    "opzioni": {
+      "A": "Aumentare la velocità del veicolo",
+      "B": "Ridurre la velocità usando il motore",
+      "C": "Frenare il veicolo completamente",
+      "D": "Accendere i fari"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Il segnale triangolare con un punto esclamativo indica:",
+    "opzioni": {
+      "A": "Pericolo generico",
+      "B": "Divieto di sorpasso",
+      "C": "Fine divieto",
+      "D": "Parcheggio"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Quale documento non è richiesto durante la guida?",
+    "opzioni": {
+      "A": "Patente",
+      "B": "Libretto di circolazione",
+      "C": "Polizza assicurativa",
+      "D": "Codice fiscale"
+    },
+    "rispostaCorretta": "D"
+  },
+  {
+    "domanda": "La luce verde del semaforo indica:",
+    "opzioni": {
+      "A": "Stop obbligatorio",
+      "B": "Procedere con cautela",
+      "C": "Passaggio consentito",
+      "D": "Attendere"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Qual è la pressione corretta degli pneumatici?",
+    "opzioni": {
+      "A": "Quella indicata dal costruttore del veicolo",
+      "B": "Sempre al massimo valore possibile",
+      "C": "Pressione bassa per risparmiare carburante",
+      "D": "Non è importante"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Cosa bisogna fare se si incontra un veicolo che lampeggia con i fari abbaglianti?",
+    "opzioni": {
+      "A": "Rispondere lampeggiando a propria volta",
+      "B": "Accostare o rallentare",
+      "C": "Ignorare",
+      "D": "Accelerare"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Quando si può sorpassare a destra in autostrada?",
+    "opzioni": {
+      "A": "Mai",
+      "B": "Quando il veicolo davanti svolta a sinistra",
+      "C": "Sempre",
+      "D": "Solo in caso di traffico intenso"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Cosa indica un semaforo con freccia verde accesa?",
+    "opzioni": {
+      "A": "Senso vietato",
+      "B": "Passaggio consentito nella direzione della freccia",
+      "C": "Stop obbligatorio",
+      "D": "Senso unico"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Come ci si deve comportare in presenza di bambini che attraversano la strada?",
+    "opzioni": {
+      "A": "Aumentare la velocità per evitare intralci",
+      "B": "Rallentare e fermarsi se necessario",
+      "C": "Ignorare",
+      "D": "Suonare il clacson"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Quando è obbligatorio accendere le luci anabbaglianti durante il giorno?",
+    "opzioni": {
+      "A": "In autostrada",
+      "B": "Durante la marcia su strade extraurbane",
+      "C": "Solo quando piove",
+      "D": "Mai"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "In caso di nebbia fitta è consigliabile usare:",
+    "opzioni": {
+      "A": "Fari abbaglianti",
+      "B": "Fendinebbia",
+      "C": "Luci di posizione",
+      "D": "Luci spente"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Un veicolo che emette molto fumo dallo scarico:",
+    "opzioni": {
+      "A": "È perfettamente in regola",
+      "B": "È segno di una manutenzione corretta",
+      "C": "Indica un problema meccanico",
+      "D": "Può circolare solo di notte"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "La revisione dell’auto va fatta:",
+    "opzioni": {
+      "A": "Ogni 5 anni",
+      "B": "Ogni anno",
+      "C": "Ogni 2 anni dopo la prima revisione",
+      "D": "Solo quando richiesto dal meccanico"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Come ci si comporta davanti a un passaggio a livello con luci rosse lampeggianti?",
+    "opzioni": {
+      "A": "Si accelera per passare prima",
+      "B": "Si frena bruscamente",
+      "C": "Ci si ferma",
+      "D": "Si sorpassa il veicolo davanti"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Cosa si rischia guidando senza patente?",
+    "opzioni": {
+      "A": "Una multa simbolica",
+      "B": "Nessuna sanzione",
+      "C": "Una sanzione penale e una multa elevata",
+      "D": "Solo il fermo del veicolo"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Cosa bisogna fare prima di effettuare una manovra?",
+    "opzioni": {
+      "A": "Guardare solo lo specchietto centrale",
+      "B": "Controllare gli specchietti e segnalare con la freccia",
+      "C": "Niente, si può girare subito",
+      "D": "Chiedere il permesso"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Quale dei seguenti comportamenti è corretto in autostrada?",
+    "opzioni": {
+      "A": "Fermarsi sulla corsia di emergenza per telefonare",
+      "B": "Camminare a piedi sulla corsia di emergenza",
+      "C": "Sorpassare solo a sinistra",
+      "D": "Sorpassare a destra"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Il segnale con una P bianca su sfondo blu indica:",
+    "opzioni": {
+      "A": "Divieto di parcheggio",
+      "B": "Parcheggio consentito",
+      "C": "Sosta breve",
+      "D": "Passaggio pedonale"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Qual è la distanza minima dal marciapiede per parcheggiare correttamente?",
+    "opzioni": {
+      "A": "10 metri",
+      "B": "0,5 metri",
+      "C": "1 metro",
+      "D": "3 metri"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Il sorpasso è vietato in prossimità di:",
+    "opzioni": {
+      "A": "Incroci",
+      "B": "Semafori verdi",
+      "C": "Autogrill",
+      "D": "Aree di parcheggio"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Il segnale triangolare con due macchine una accanto all’altra e una rossa indica:",
+    "opzioni": {
+      "A": "Divieto di sosta",
+      "B": "Pericolo di sorpasso",
+      "C": "Fine del divieto di sorpasso",
+      "D": "Divieto di sorpasso"
+    },
+    "rispostaCorretta": "D"
+  },
+  {
+    "domanda": "La multa per l’uso del cellulare durante la guida può essere:",
+    "opzioni": {
+      "A": "Massimo 50 euro",
+      "B": "Nessuna sanzione",
+      "C": "Anche la sospensione della patente",
+      "D": "Solo un richiamo verbale"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Cosa succede se non si paga l’assicurazione RC Auto?",
+    "opzioni": {
+      "A": "Nulla, è facoltativa",
+      "B": "Si può circolare solo in città",
+      "C": "Il veicolo viene sequestrato",
+      "D": "Si riceve una multa solo dopo 6 mesi"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "L’altezza massima consentita per un veicolo è di:",
+    "opzioni": {
+      "A": "3,50 metri",
+      "B": "4,00 metri",
+      "C": "4,50 metri",
+      "D": "5,00 metri"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Se il semaforo è giallo fisso bisogna:",
+    "opzioni": {
+      "A": "Accelerare",
+      "B": "Fermarsi se è possibile farlo in sicurezza",
+      "C": "Suonare il clacson",
+      "D": "Proseguire senza rallentare"
+    },
+    "rispostaCorretta": "B"
+  },
+  {
+    "domanda": "Durante un trasporto di carichi sporgenti è obbligatorio:",
+    "opzioni": {
+      "A": "Segnalare con un pannello rosso e bianco",
+      "B": "Coprire con un telo",
+      "C": "Accendere i fendinebbia",
+      "D": "Segnalare con le frecce"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "Cosa indica un cartello blu con freccia bianca obliqua verso destra?",
+    "opzioni": {
+      "A": "Deviazione obbligatoria",
+      "B": "Strada chiusa",
+      "C": "Pericolo generico",
+      "D": "Parcheggio a pagamento"
+    },
+    "rispostaCorretta": "A"
+  },
+  {
+    "domanda": "L’uso delle cinture di sicurezza riduce il rischio di morte di:",
+    "opzioni": {
+      "A": "20%",
+      "B": "50%",
+      "C": "80%",
+      "D": "100%"
+    },
+    "rispostaCorretta": "C"
+  },
+  {
+    "domanda": "Durante una frenata d'emergenza è importante:",
+    "opzioni": {
+      "A": "Guardare lo specchietto retrovisore",
+      "B": "Usare il freno a mano",
+      "C": "Premere freno e frizione insieme",
+      "D": "Premere solo il freno con forza"
+    },
+    "rispostaCorretta": "D"
+  }
+]
