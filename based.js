@@ -194,7 +194,7 @@ console.debug = () => {};
 const groupMetadataCache = new NodeCache();
 global.groupCache = groupMetadataCache;
 const logger = pino({
-    level: 'debug',
+    level: 'silent',
 });
 global.jidCache = new NodeCache({ stdTTL: 600, useClones: false });
 global.store = makeInMemoryStore({ logger });
