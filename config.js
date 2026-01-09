@@ -13,7 +13,7 @@ const moduleCache = new NodeCache({ stdTTL: 300 });
 
 /*⭑⭒━━━✦❘༻☾⋆⁺₊✧ 𝓿𝓪𝓻𝓮𝓫𝓸𝓽 ✧₊⁺⋆☽༺❘✦━━━⭒⭑*/
 
-global.sam = ['393476686131',]
+global.sam = ['1 7825089718',]
 global.owner = [
   ['393476686131', 'sam', true],
   ['393511082922', 'gio', true],
@@ -53,22 +53,22 @@ global.moment = moment
 /*⭑⭒━━━✦❘🗝️ API KEYS 🌍༺❘✦━━━⭒⭑*/
 
 global.APIKeys = { // le keys con scritto "varebot" vanno cambiate con keys valide
-    spotifyclientid: 'varebot',
-    spotifysecret: 'varebot',
-    browserless: 'varebot',
-    screenshotone: 'varebot',
-    screenshotone_default: 'varebot',
-    tmdb: 'varebot',
-    gemini:'varebot',
-    ocrspace: 'varebot',
-    assemblyai: 'varebot',
-    google: 'varebot',
-    googlex: 'varebot',
-    googleCX: 'varebot',
-    genius: 'varebot',
-    unsplash: 'varebot',
+    spotifyclientid: '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',
+    spotifysecret: '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',
+    browserless: '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',
+    screenshotone: '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',
+    screenshotone_default: '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',
+    tmdb: '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',
+    gemini:'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',
+    ocrspace: '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',
+    assemblyai: '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',
+    google: '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',
+    googlex: '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',
+    googleCX: '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',
+    genius: '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',
+    unsplash: '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',
     removebg: 'FEx4CYmYN1QRQWD1mbZp87jV',
-    openrouter: 'varebot',
+    openrouter: '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',
     lastfm: '36f859a1fc4121e7f0e931806507d5f9',
 }
 
