@@ -1,7 +1,14 @@
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-var handler = async (m, { conn, participants }) => {
+var handler = async (m, { conn }) => {
   try {
+    if (!m.isGroup) return
+
+    // 📌 Recupero metadata sempre affidabile
+    const metadata = await conn.groupMetadata(m.chat)
+    const participants = metadata.participants
+
+    // 📌 Owner (compatibile con tutti i formati)
     const owners = new Set(
       (global.owner || [])
         .flatMap(v => {
@@ -12,27 +19,35 @@ var handler = async (m, { conn, participants }) => {
         .map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net')
     )
 
-    const botJid = conn.user.jid
+    // 📌 JID bot normalizzato
+    const botJid = conn.user.id.split(':')[0] + '@s.whatsapp.net'
     const botParticipant = participants.find(p => p.id === botJid)
-    const isBotAdmin = botParticipant?.admin === 'admin' || botParticipant?.admin === 'superadmin'
 
+    // 📌 Controllo admin bot
+    const isBotAdmin = ['admin', 'superadmin'].includes(botParticipant?.admin)
     if (!isBotAdmin) {
       return m.reply('❌ Il bot non è admin, quindi non può smontare nessuno.')
     }
-    if (!global.db.data.chats[m.chat]) global.db.data.chats[m.chat] = {}
-    global.db.data.chats[m.chat].detect = false
+
+    // 📌 Smonta tutti gli admin tranne owner e bot
     const toDemote = participants
-      .filter(p => p.admin && !owners.has(p.id) && p.id !== botJid)
+      .filter(p =>
+        p.admin &&
+        p.id !== botJid &&
+        !owners.has(p.id)
+      )
       .map(p => p.id)
 
-    if (toDemote.length === 0) {
+    if (!toDemote.length) {
       return m.reply('✅ Nessun admin da smontare.')
     }
-    await conn.groupParticipantsUpdate(m.chat, toDemote, 'demote').catch(() => {})
+
+    // 📌 Demote
+    await conn.groupParticipantsUpdate(m.chat, toDemote, 'demote')
     await delay(1000)
 
-    m.reply(`✅ Smontati ${toDemote.length} adminz.`)
-    
+    m.reply(`✅ Smontati ${toDemote.length} admin.`)
+
   } catch (e) {
     console.error(e)
     m.reply('❌ Errore durante lo smontaggio degli admin.')
@@ -41,5 +56,7 @@ var handler = async (m, { conn, participants }) => {
 
 handler.command = /^smonta$/i
 handler.group = true
-handler.rowner = true
+handler.owner = true
+handler.botAdmin = true
+
 export default handler
