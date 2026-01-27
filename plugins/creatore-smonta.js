@@ -1,35 +1,41 @@
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+const delay = ms => new Promise(r => setTimeout(r, ms))
 
-var handler = async (m, { conn }) => {
+var handler = async (m, { conn, isBotAdmin }) => {
   try {
     if (!m.isGroup) return
 
-    // 📌 Recupero metadata sempre affidabile
+    // 🔹 METADATA
     const metadata = await conn.groupMetadata(m.chat)
     const participants = metadata.participants
 
-    // 📌 Owner (compatibile con tutti i formati)
+    // 🔹 OWNER (tutti i formati)
     const owners = new Set(
       (global.owner || [])
-        .flatMap(v => {
-          if (typeof v === 'string') return [v]
-          if (Array.isArray(v)) return v.filter(x => typeof x === 'string')
-          return []
-        })
-        .map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net')
+        .flatMap(v => Array.isArray(v) ? v : [v])
+        .filter(v => typeof v === 'string')
+        .map(v => v.replace(/\D/g, '') + '@s.whatsapp.net')
     )
 
-    // 📌 JID bot normalizzato
-    const botJid = conn.user.id.split(':')[0] + '@s.whatsapp.net'
+    // 🔹 JID BOT (ULTRA SAFE)
+    const botJid =
+      conn.user?.jid ||
+      conn.user?.id?.split(':')[0] + '@s.whatsapp.net'
+
+    // 🔹 PARTICIPANT BOT
     const botParticipant = participants.find(p => p.id === botJid)
 
-    // 📌 Controllo admin bot
-    const isBotAdmin = ['admin', 'superadmin'].includes(botParticipant?.admin)
-    if (!isBotAdmin) {
+    // 🔹 CONTROLLO ADMIN (3 LIVELLI)
+    const botIsAdmin =
+      isBotAdmin === true || // se il framework lo passa
+      botParticipant?.admin === 'admin' ||
+      botParticipant?.admin === 'superadmin'
+
+    if (!botIsAdmin) {
+      console.log('[DEBUG]', { botJid, botParticipant })
       return m.reply('❌ Il bot non è admin, quindi non può smontare nessuno.')
     }
 
-    // 📌 Smonta tutti gli admin tranne owner e bot
+    // 🔹 LISTA DA SMONTARE
     const toDemote = participants
       .filter(p =>
         p.admin &&
@@ -42,15 +48,17 @@ var handler = async (m, { conn }) => {
       return m.reply('✅ Nessun admin da smontare.')
     }
 
-    // 📌 Demote
-    await conn.groupParticipantsUpdate(m.chat, toDemote, 'demote')
-    await delay(1000)
+    // 🔹 DEMOTE
+    for (const jid of toDemote) {
+      await conn.groupParticipantsUpdate(m.chat, [jid], 'demote').catch(() => {})
+      await delay(800)
+    }
 
     m.reply(`✅ Smontati ${toDemote.length} admin.`)
 
   } catch (e) {
     console.error(e)
-    m.reply('❌ Errore durante lo smontaggio degli admin.')
+    m.reply('❌ Errore durante lo smontaggio.')
   }
 }
 
