@@ -1,6 +1,3 @@
-// plugin-sborralo.js
-// Salva questo come file plugin nel tuo bot WZ e lo carica automaticamente
-
 const fs = require('fs');
 const path = require('path');
 
