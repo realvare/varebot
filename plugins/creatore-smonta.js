@@ -1,45 +1,70 @@
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+const delay = ms => new Promise(r => setTimeout(r, ms))
 
-var handler = async (m, { conn, participants }) => {
+var handler = async (m, { conn, isBotAdmin }) => {
   try {
+    if (!m.isGroup) return
+
+    // 🔹 METADATA
+    const metadata = await conn.groupMetadata(m.chat)
+    const participants = metadata.participants
+
+    // 🔹 OWNER (tutti i formati)
     const owners = new Set(
       (global.owner || [])
-        .flatMap(v => {
-          if (typeof v === 'string') return [v]
-          if (Array.isArray(v)) return v.filter(x => typeof x === 'string')
-          return []
-        })
-        .map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net')
+        .flatMap(v => Array.isArray(v) ? v : [v])
+        .filter(v => typeof v === 'string')
+        .map(v => v.replace(/\D/g, '') + '@s.whatsapp.net')
     )
 
-    const botJid = conn.user.jid
-    const botParticipant = participants.find(p => p.id === botJid)
-    const isBotAdmin = botParticipant?.admin === 'admin' || botParticipant?.admin === 'superadmin'
+    // 🔹 JID BOT (ULTRA SAFE)
+    const botJid =
+      conn.user?.jid ||
+      conn.user?.id?.split(':')[0] + '@s.whatsapp.net'
 
-    if (!isBotAdmin) {
+    // 🔹 PARTICIPANT BOT
+    const botParticipant = participants.find(p => p.id === botJid)
+
+    // 🔹 CONTROLLO ADMIN (3 LIVELLI)
+    const botIsAdmin =
+      isBotAdmin === true || // se il framework lo passa
+      botParticipant?.admin === 'admin' ||
+      botParticipant?.admin === 'superadmin'
+
+    if (!botIsAdmin) {
+      console.log('[DEBUG]', { botJid, botParticipant })
       return m.reply('❌ Il bot non è admin, quindi non può smontare nessuno.')
     }
-    if (!global.db.data.chats[m.chat]) global.db.data.chats[m.chat] = {}
-    global.db.data.chats[m.chat].detect = false
+
+    // 🔹 LISTA DA SMONTARE
     const toDemote = participants
-      .filter(p => p.admin && !owners.has(p.id) && p.id !== botJid)
+      .filter(p =>
+        p.admin &&
+        p.id !== botJid &&
+        !owners.has(p.id)
+      )
       .map(p => p.id)
 
-    if (toDemote.length === 0) {
+    if (!toDemote.length) {
       return m.reply('✅ Nessun admin da smontare.')
     }
-    await conn.groupParticipantsUpdate(m.chat, toDemote, 'demote').catch(() => {})
-    await delay(1000)
 
-    m.reply(`✅ Smontati ${toDemote.length} adminz.`)
-    
+    // 🔹 DEMOTE
+    for (const jid of toDemote) {
+      await conn.groupParticipantsUpdate(m.chat, [jid], 'demote').catch(() => {})
+      await delay(800)
+    }
+
+    m.reply(`✅ Smontati ${toDemote.length} admin.`)
+
   } catch (e) {
     console.error(e)
-    m.reply('❌ Errore durante lo smontaggio degli admin.')
+    m.reply('❌ Errore durante lo smontaggio.')
   }
 }
 
 handler.command = /^smonta$/i
 handler.group = true
-handler.rowner = true
+handler.owner = true
+handler.botAdmin = true
+
 export default handler
