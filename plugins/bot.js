@@ -18,7 +18,7 @@ handler.all = async function (m) {
 /*⭑⭒━━━✦❘༻☾⋆⁺₊✧ Immagini ✧₊⁺⋆☽༺❘✦━━━⭒⭑*/
 
   global.foto = [
-    path.join(process.cwd(), 'media', 'sticker', 'script.webp'),
+    path.join(process.cwd(), 'media', 'sticker', 'banzozzzap.webp'),
     path.join(process.cwd(), 'media', 'menu', 'menu.jpg')
   ].getRandom()
 
